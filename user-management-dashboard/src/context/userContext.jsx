@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 async function fetchData() {
     const res=await fetch("https://jsonplaceholder.typicode.com/users");
-    const data= res.json()
+    const data= await res.json()
     const userData= data.map((usr) => {
         let usrDetails={
                 id:usr.id,
@@ -18,11 +18,11 @@ async function fetchData() {
 
 let data= await fetchData()
 
-const userContext= createContext(data);
-const themeContext= createContext("light")
+const UserContext= createContext(data);
+const ThemeContext= createContext("light")
 
 
 export{
-    userContext,
-    themeContext
+    UserContext,
+    ThemeContext
 }
